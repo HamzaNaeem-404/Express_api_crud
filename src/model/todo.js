@@ -1,4 +1,4 @@
-import todoController from "../controller/api.js";
+import todoController from "../controller/todo.js";
 
 const todoList=[
     {
@@ -40,12 +40,12 @@ const todoModal={
            },
     
     addTodo: (a)=>{
-        let x = todoModal.getAll(); //finding length of Modal Array
-        let y = x.slice();
+        let x = todoModal.getAll(); 
+        let y = x.slice();   //To avoid duplication of values in element.id 
         let z = y.reverse();
-        let newId = z.shift().id;
+        let newId = z.shift().id; //Finding element.id value of last index
                         
-        a.id = parseInt(newId)+1 ;  //adding id + 1 of length[array]
+        a.id = parseInt(newId)+1 ;  //Auto-add the value of id + 1 for new array index.
         a.status = "false";
         
         x.push(a); //Pusing the data in Modal Array
